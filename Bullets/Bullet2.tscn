@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://7aod75y7sd37"]
+[gd_scene load_steps=64 format=3 uid="uid://7aod75y7sd37"]
 
 [ext_resource type="Script" path="res://Bullets/Bullet2.gd" id="1_80dkp"]
 [ext_resource type="Texture2D" uid="uid://hgvv3mtlu60f" path="res://Assets/2/1.png" id="2_bbn7j"]
@@ -250,6 +250,9 @@ animations = [{
 "speed": 70.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfj4j"]
+size = Vector2(379, 377)
+
 [node name="Bullet2" type="Node2D"]
 script = ExtResource("1_80dkp")
 
@@ -260,9 +263,11 @@ texture_filter = 1
 scale = Vector2(15, 15)
 sprite_frames = SubResource("SpriteFrames_agwhq")
 autoplay = "default"
-frame_progress = 0.375185
+frame_progress = 0.782525
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, 3.5)
+shape = SubResource("RectangleShape2D_cfj4j")
 
 [node name="KillTimer" type="Timer" parent="."]
 
