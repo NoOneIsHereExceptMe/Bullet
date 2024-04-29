@@ -52,6 +52,14 @@ func _on_shoot_timer_timeout():
 
 func _on_count_change_timer_timeout():
 	SpawnCount = randi_range(1, 5)
+	var step = 2 * PI / SpawnCount
+	
+	for i in range(SpawnCount):
+		var spawn_point = Node2D.new()
+		var pos = Vector2(Radius, 0).rotated(step * i)
+		spawn_point.position = pos
+		spawn_point.rotation = pos.angle()
+		rotator.add_child(spawn_point)
 	print(SpawnCount)
 
 func _on_bullet_1_timer_timeout():
