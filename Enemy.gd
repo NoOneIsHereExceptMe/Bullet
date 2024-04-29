@@ -9,7 +9,13 @@ extends Node2D
 
 @onready var shoot_timer = $ShootTimer
 @onready var rotator = $Rotator
-@onready var 
+
+@onready var bullettimer1 = $Bullet1Timer
+@onready var bullettimer2 = $Bullet2Timer
+@onready var bullettimer3 = $Bullet3Timer
+@onready var bullettimer4 = $Bullet4Timer
+@onready var bullettimer5 = $Bullet5Timer
+@onready var bullettimer6 = $Bullet6Timer
 
 @export var RotationSpd = 100
 @export var TimerWaitTime = 0.5
@@ -48,11 +54,15 @@ func _on_count_change_timer_timeout():
 	SpawnCount = randi_range(1, 5)
 	print(SpawnCount)
 
-func _on_bullet_timer_timeout():
-	
-	if Bullet2.can_instantiate():
+func _on_bullet_1_timer_timeout():
+	if Bullet2.can_instantiate(): # if doesn't work use null checking
 		for s in rotator.get_children():
 			var bullet2 = Bullet2.instantiate()
 			get_tree().root.add_child(bullet2)
 			bullet2.position = s.global_position
 			bullet2.rotation = s.global_rotation
+
+func _on_radius_timer_timeout():
+	Radius = randi_range(200, 1500)
+	print(Radius)
+
