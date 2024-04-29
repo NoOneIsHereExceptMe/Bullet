@@ -40,3 +40,7 @@ func _on_shoot_timer_timeout():
 func _on_count_change_timer_timeout():
 	SpawnCount = randi_range(1, 5)
 	print(SpawnCount)
+
+
+func _on_bullet_change_timer_timeout():
+	pass # Replace with function body.
